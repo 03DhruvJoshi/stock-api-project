@@ -1,0 +1,8 @@
+services:
+  stockapiproject:
+    image: stockapiproject
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5002:5002

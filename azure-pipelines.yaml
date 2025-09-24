@@ -1,0 +1,25 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@2
+  inputs:
+    command: buildAndPush
+    repository: stock-api
+    dockerfile: api/Dockerfile
+    containerRegistry: $(dockerRegistryServiceConnection)
+    tags: latest
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscription: $(azureSubscription)
+    azureResourceGroup: stock-api-rg
+    kubernetesCluster: stock-api-aks
+    namespace: default
+    command: apply
+    useConfigurationFile: true
+    configuration: k8s/deployment.yaml
