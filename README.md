@@ -41,6 +41,10 @@ To run the project, in the CMD, apply the following
 - ```kubectl get svc stock-api-service``` - To retrieve the <EXTERNAL_API> 
 - ```Invoke-WebRequest http://<EXTERNAL_API>/stocks/MSF```
 
+- Utilise an API Tester Tool such as Postman or Imsomnia
+- Create a ```GET``` request to send the following API URL: http://<EXTERNAL_API>/stocks/MSF
+- Retrieve results from the API result body, ideally in JSON
+
 ## Project Troubleshoot 
 
 In case of errors - check the following: 
