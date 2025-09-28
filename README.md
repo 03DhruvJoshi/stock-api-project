@@ -38,8 +38,11 @@ kubectl apply -f k8s/deployment.yaml
 ## Project Deployment 
 
 To run the project, in the CMD, apply the following
-- ```kubectl get svc stock-api-service``` - To retrieve the <EXTERNAL_API> 
-- ```Invoke-WebRequest http://<EXTERNAL_API>/stocks/MSF```
+- ```kubectl get svc stock-api-service``` - To retrieve the <EXTERNAL_API>
+
+- Fetch a stock symbol for a company registered in NASDAQ, for e.g. AAPL, MSFT, ORCL, TSLA, and insert it in the <SYMBOL> section.
+- NOTE: You can only fetch the data for a single company.
+- ```Invoke-WebRequest http://<EXTERNAL_API>/stocks/<SYMBOL>```
 
 - Utilise an API Tester Tool such as Postman or Imsomnia
 - Create a ```GET``` request to send the following API URL: http://<EXTERNAL_API>/stocks/MSF
