@@ -13,16 +13,16 @@ spec:
         app: stock-api
     spec:
       containers:
-      - name: stock-api
-        image: <ACR_NAME>.azurecr.io/stock-api:latest
-        ports:
-        - containerPort: 5000
-        env:
-        - name: ALPHAVANTAGE_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: stock-secret
-              key: api-key
+        - name: stock-api
+          image: stockapiacr123.azurecr.io/stock-api:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: ALPHAVANTAGE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: stock-secret
+                  key: api-key
 ---
 apiVersion: v1
 kind: Service
