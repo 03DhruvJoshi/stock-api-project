@@ -53,9 +53,33 @@ To run the project, in the CMD, apply the following
 In case of errors - check the following: 
 
 ```kubectl get pods``` for ACR status 
-
 ```kubectl logs -l app=stock-api``` for checking the logs
 
+## Start / Stop Clusters 
+
+The clusters are deployed on the local machine - and running the service comes with a cost. 
+
+To terminate the service, apply the following process: 
+
+Retrieve the <CLUSTER-NAME> and <RESOURCE-GROUP-NAME>
+```
+az aks list --output table 
+```
+
+Check the status of the cluster: 
+```
+az aks show --resource-group <RESOURCE-GROUP-NAME> --name <CLUSTER-NAME> --query "powerState.code" --output tsv
+```
+
+If the cluster is RUNNING, and you would like to stop it, run: 
+```
+az aks stop --resource-group <RESOURCE-GROUP-NAME> --name <CLUSTER-NAME>
+```
+
+If the cluster is STOPPED, and you would like to start it, run: 
+```
+az aks start --resource-group <RESOURCE-GROUP-NAME> --name <CLUSTER-NAME>
+```
 
 
 
